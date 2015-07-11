@@ -20,81 +20,3 @@ id,deleted,type,by,time,text,dead,parent,kids,url,score,title,parts,descendants
 19,,story,pg,1160423943,,,,[454428],http://www.technologyreview.com/read_article.aspx?id=17588&ch=energy,2,Will Silicon Light Illuminate the Future?,,0
 20,,story,pg,1160424038,,,,"[23, 454429]",http://avc.blogs.com/a_vc/2006/10/search_by_salar.html,8,Salaries at VC-backed companies,,1
 21,,story,sama,1160443271,,,,"[22, 454430]",http://www.techcrunch.com/2006/10/09/google-has-acquired-youtube/,6,Best IRR ever?  YouTube 1.65B...,,1
-22,,comment,pg,1160446702,It's kind of funny that Sevin Rosen is giving up at the same time Sequoia is scoring on this scale.,,21,[454431],,,,,
-23,,comment,starklysnarky,1160447453,"This is interesting, but the limitations become apparent with one of their example searches: http://tinyurl.com/qqnumThis comparison shows ""early stage"" companies offering a higher salary than fortune XXX companies. However, these numbers don't seem to indicate total compensation, such as benefits and stock or options.Still, a cool use of search technology.",,20,[454432],,,,,
-24,,story,starklysnarky,1160452465,,,,[454433],http://www.startup-review.com/blog/myspace-case-study-not-a-purely-viral-start.php,9,MySpace: Not a purely viral start,,0
-25,,story,starklysnarky,1160458412,,,,[454436],http://www.usatoday.com/money/industries/technology/2004-04-21-sas-culture_x.htm,5,A Story About Not Going IPO During The Bubble,,0
-26,,story,zak,1160460733,,True,,[454437],http://www.nytimes.com/2006/09/10/business/yourmoney/10stra.html?ex=1315540800&en=6889d6d8b8f28c5a&ei=5090&partner=rssuserland&emc=rss,1,Spam stock tips work - for spammers,,-1
-27,,story,spez,1160489043,,,,[454438],http://www.google.com/press/pressrel/google_youtube.html,12,Google Acquires YouTube For $1.6B,,0
-28,,story,spez,1160490910,,True,,,http://www.google.com/press/pressrel/google_youtube.html,1,google!,,-1
-29,,story,spez,1160494490,,True,,[30],http://news.ycombinator.com/comments?id=29,2,How to Get #1 on news.yc,,5
-30,,comment,spez,1160494499,Stay tuned...,,29,"[31, 454446]",,,,,
-31,,comment,pg,1160494805,I'm tuned...,,30,"[33, 454447]",,,,,
-32,,story,eshear,1160494980,,,,[454448],http://scratchtop.com,5,Scratchtop - notepad for the web,,0
-33,,comment,spez,1160495440,winnar winnar chicken dinnar!,,31,"[34, 454450]",,,,,
-34,,comment,pg,1160495633,what do you mean?  this story's still not #1,,33,"[36, 35, 454452, 454451, 531706]",,,,,
-35,,comment,spez,1160495862,"perhaps if i hadn't told you it was cominghttp://lipstick.com/static/onlyforamoment.png",,34,,,,,,
-36,,comment,pg,1160496061,Can you do it again?,,34,[454454],,,,,
-37,,story,gaborcselle,1160511234,,,,"[41, 454455]",http://marcusfoster.com/blog/2006/10/09/woah-scrybe/,4,"Woah, Scrybe! - A new kind of online organiser.",,1
-38,,story,farmer,1160513093,,,,[454457],http://www.nytimes.com/2006/10/10/technology/10deal.html?ex=1318132800&en=d8a82aacfcbbe1ee&ei=5090&partner=rssuserland&emc=rss,3,Dot-Com Boom Echoed in Deal to Buy YouTube - New York Times,,0
-39,,story,frobnicate,1160513750,,,,[454458],http://www.techcrunch.com/2006/10/04/competitous-track-your-competition-online/,3,Competitio.us: track your competitors online,,0
-40,,story,pg,1160513941,,,,[454460],"http://www.cioinsight.com/print_article2/0,1217,a=190067,00.asp",3,Scoble: Google web apps &#34;will sneak in the back door&#34;,,0
-41,,comment,starklysnarky,1160520368,"it's interesting how a simple set of features can make the product seem wholly different, new, and interesting. that, and the use of 'revolutionary' and 'incredible' everywhere. =)",,37,[454461],,,,,
-42,,story,sergei,1160532601,,,,"[28355, 28717, 454463]",http://www.venturebeat.com/contributors/2006/10/10/an-alternative-to-vc-selling-in/,5,An alternative to VC: &#34;Selling In&#34;,,0
-43,,story,farmer,1160577901,,,,"[44, 454464]",http://www.nytimes.com/2006/10/11/technology/11yahoo.html?ex=1318219200&en=538f73d9faa9d263&ei=5090&partner=rssuserland&emc=rss,3,Yahoo's Growth Being Eroded by New Rivals - New York Times,,1
-44,,comment,spez,1160578848,"Welcome back, Randall",,43,[454465],,,,,
-45,,story,perler,1160579078,,,,[454466],http://www.techcrunch.com/2006/10/11/coghead-goes-live-build-applications-visually/,5,Coghead Goes Live: Build Applications Visually,,0
-46,,story,goldfish,1160581168,,,,[454470],http://www.rentometer.com/,4,Rentometer: Check How Your Rent Compares to Others in Your Area,,0
-47,,story,onebeerdave,1160603268,,,,[454471],http://business2.blogs.com/business2blog/2006/10/startup_watch_c.html,2,Another audience-driven news site that thinks it will win by paying users ,,0
-48,,story,zak,1160625123,,True,,[454472],http://www.nytimes.com/2006/10/12/technology/12tube.html,9,The richest graduate student ever,,-1
-49,,story,pg,1160659814,,,,[454473],http://www.techcrunch.com/2006/10/11/preezo-enters-online-office-race/,4,Preezo Enters Online Office Race,,0
-50,,story,pg,1160661570,,,,[454474],http://masshightech.bizjournals.com/masshightech/stories/2006/09/25/story8.html,4,Boston VCs invest in fewer consumer Internet startups than Silicon Valley firms,,0
-51,,story,phyllis,1160680406,,,,[454475],http://www.techcrunch.com/2006/10/12/how-much-money-do-you-make/,3,How Much Money Do You Make?,,0
-52,,story,onebeerdave,1160680740,,,,[454476],http://polls.gigaom.com/2006/10/09/goobed/,2,Winners and Losers in the Google YouTube deal,,0
-53,,story,gaborcselle,1160692722,,,,[454477],http://rondam.blogspot.com/2006/10/top-ten-geek-business-myths.html,7,Top ten geek business myths,,0
-54,,story,phyllis,1160750722,,,,[454478],http://www.techcrunch.com/2006/10/12/the-payperpost-virus-spreads/,1,The PayPerPost Virus Spreads,,0
-55,,story,perler,1160750810,,,,[454479],http://www.techcrunch.com/2006/10/13/realtravel-trip-planner-cut-paste-share-travel-tips/,2,"RealTravel Trip Planner: Cut, Paste & Share Travel Tips",,0
-56,,story,pg,1160840625,,,,[454480],http://www.nytimes.com/2006/10/15/movies/15waxm.html?ex=1318564800&en=e5fbcfe899f7c41d&ei=5090&partner=rssuserland&emc=rss,4,Cyberface: New technology that &#34;captures the soul&#34;,,0
-57,,story,adamsmith,1160866541,,,,"[439383, 454481]",http://www.rampantgames.com/blog/2004/10/black-triangle.html,12,Black triangle: a useful shorthand and metaphor,,1
-58,,story,frobnicate,1160952510,,,,[454482],http://www.nytimes.com/2006/10/15/business/yourmoney/15friend.html?ex=1318564800&en=3e9438ed349f7ce7&ei=5090&partner=rssuserland&emc=rss,7,NYT: How Friendster Blew It,,0
-59,,story,gaborcselle,1161073953,,,,[454483],http://www.nytimes.com/2006/10/17/technology/17paypal.html?ex=1318737600&en=6fcef6809e87f6fc&ei=5090&partner=rssuserland&emc=rss,3,NYT on the network of ex-PayPal employees in Silicon Valley,,0
-60,,story,zak,1161406610,,True,,[454484],http://www.nytimes.com/2006/10/15/business/yourmoney/15friend.html?ex=1318564800&amp;en=3e9438ed349f7ce7&amp;ei=5090&amp;partner=rssuserland&amp;emc=rss,2,"How Friendster Bit The Dust (sorry, duplicate)",,-1
-61,,story,goldfish,1161541795,,,,[454485],http://www.nytimes.com/2006/10/22/business/yourmoney/22digi.html?ex=1319169600&en=fc0cc8346b8b9382&ei=5090&partner=rssuserland&emc=rss,2,VCs Prefer to Fund Nearby Firms - New York Times,,0
-62,,story,pg,1166112730,,,,[454486],http://rura.org/blog/2006/12/13/productivity-surges-amid-reddit-downtime/,3,Productivity Surges During Reddit Downtime,,0
-63,,story,kul,1171852224,,,,"[2686, 554, 454488]",http://news.bbc.co.uk/2/hi/business/6355289.stm,25,From Oxford to Silicon Valley,,2
-64,,story,pg,1171852226,,True,,[917],http://news.bbc.co.uk/2/hi/business/6355289.stm,6,From Oxford to Silicon Valley,,0
-65,,story,perler,1171852700,,,,[454490],http://localglobe.blogspot.com/2007/02/y-europe-can-seed-growth-of-its-new.html,13,Y Europe can seed growth of its new stars,,0
-66,,story,pg,1171852951,,,,[454491],http://www.techcrunch.com/2007/02/16/newest-flash-tools-on-display-at-photobucket/,12,Adobe gives new flash tools only to Photobucket,,0
-67,,story,zak,1171854098,,True,,"[166, 454493]",http://www.nytimes.com/2007/01/18/business/18edge.html?ex=1326776400&en=50506a28938a5850&ei=5088&partner=rssnyt&emc=rss,14,How to make money with a PhD,,0
-68,,story,zak,1171854261,,True,,[454494],http://www.nytimes.com/2006/11/20/technology/20ecom.html?ex=1321678800&en=a850316060f8dcca&ei=5088&partner=rssnyt&emc=rss,3,A website that makes you look good,,-1
-69,,story,zak,1171854456,,True,,"[76, 454495]",http://www.nytimes.com/2006/11/09/technology/09venture.html?ex=1320728400&en=550d24cae21caac0&ei=5088&partner=rssnyt&emc=rss,7," For Startups, Web Success on the Cheap",,0
-70,,story,zak,1171854524,,True,,"[82, 454496]",http://www.nytimes.com/2006/10/29/business/yourmoney/29women.html?ex=1319774400&en=bca62d147f69b73e&ei=5088&partner=rssnyt&emc=rss,8,Make something women want,,0
-71,,story,zak,1171854730,,True,,[454497],http://www.nytimes.com/2006/09/10/business/yourmoney/10stra.html?ex=1315540800&en=275aa05a8358b924&ei=5088&partner=rssnyt&emc=rss,2,"If your startup tanks, become a spammer - it pays",,-1
-72,,story,onebeerdave,1171855419,,,,[454498],http://www.techcrunch.com/2007/02/18/new-revenue-stream-for-bloggers-textmark-sms-alerts/,3,New Revenue Stream For Bloggers: TextMark SMS Alerts,,0
-73,,story,onebeerdave,1171855797,,True,,,http://www.techcrunch.com/2007/02/18/new-revenue-stream-for-bloggers-textmark-sms-alerts/,1,New Revenue Stream For Bloggers: TextMark SMS Alerts,,-1
-74,,story,phyllis,1171857439,,,,[454500],http://startupschool.org/,37,Startup School 2007: 3/24 at Stanford,,0
-75,,story,phyllis,1171858040,,,,"[200, 454501]",http://www.paulgraham.com/foundersatwork.html,13,Learning from Founders,,1
-76,,comment,matt,1171858302,"&#62;&#62; âI came to the conclusion that $500,000 was the new $5 million,â said Michael Maples Jr., an entrepreneur who created a $15 million venture fund aimed at investing in companies that required little capital.Pfft.  $18k is the new $500k.",,69,[454503],,,,,
-77,,story,phyllis,1171858425,,,,"[79, 454504]",http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/02/14/MNGEVO4DOV1.DTL&hw=jessica+guynn&sn=001&sc=1000,9,Tech's younger generation leans on Web 2.0 for love,,2
-78,,story,matt,1171858916,,,,[454505],http://mashable.com/2007/02/16/alexas-inaccurate-traffic-stats-become-more-detailed/,8,Alexa's Inaccurate Traffic Stats Become More Detailed,,0
-79,,comment,matt,1171860599,"Launch party circuit, eh?",,77,"[80, 454506]",,,,,
-80,,comment,pg,1171860682,yet another advantage of being in the Bay Area,,79,[454507],,,,,
-81,,story,justin,1171869130,,,,[454508],http://www.techcrunch.com/2007/02/16/allfreecalls-shut-down/,5,allfreecalls.com shut down by AT&T,,0
-82,,comment,plusbryan,1171871594,"dude, shoutfit!",,70,[454509],,,,,
-83,,story,gaborcselle,1171878148,,,,,http://www.gaborcselle.com/blog/2006/12/why-startups-dont-condense-in-europe.html,12,Why Startups Don't Condense in Europe,,0
-84,,story,nate,1171906562,,,,[454514],http://code.inklingmarkets.com/journal/2007/2/16/sell-more-of-your-product-by-throwing-out-some-of-its-features.html,6,Sell more of your product by throwing out some of its features?,,0
-85,,story,nate,1171906738,,,,"[85945, 454515]",http://lifehacker.com/software/diy/diy-underdesk-gadget-mount-237789.php,5,Hack your desk to remove the clutter,,0
-86,,story,adam_inkling,1171907154,,,,"[130, 454516]",http://unfuddle.com,10,Project management alternative to basecamp - ticketing and version control too :),,1
-87,,story,adam_inkling,1171907208,,True,,,http://unfuddle.com,1,Project management alternative to basecamp - ticketing and version control too :),,-1
-88,,story,adam_inkling,1171907224,,True,,,http://unfuddle.com,1,Project management alternative to basecamp - ticketing and version control too :),,-1
-89,,story,nate,1171907246,,,,[454517],http://macapper.com/2007/02/19/win-a-copy-of-yojimbo/,2,Win A Copy Of Yojimbo - a pretty good organizer for the Mac.,,0
-90,,story,adam_inkling,1171907435,,,,[454518],http://famfamfam.com,11,Where all the cool kids get their icons,,0
-91,,story,pc,1171908063,,,,[454519],http://www.washingtonpost.com/wp-dyn/content/article/2007/02/11/AR2007021101198.html?nav=rss_technology,5,SunRocket cofounders up and leave,,0
-92,,story,greg,1171908560,,,,[454520],http://www.clicktale.com/,10,Track users' mouse movements on your webpages,,0
-93,,story,pc,1171909142,,,,"[454521, 151]",http://www.searchmash.com/search/star+wars+kid,6,Google's Searchmash adds inline video,,0
-94,,story,thecurve,1171909181,,,,[454522],http://www.chron.com/disp/story.mpl/ap/fn/4552107.html,11,Premium GMail Coming Soon - $25/yr for 6 Gigs,,0
-95,,story,pc,1171909306,,,,[454523],http://www.iht.com/articles/2007/02/19/business/piracy.php,8,YouTube: &#34;identifying copyrighted material can't be an automated process.&#34; Startup disagrees.,,0
-96,,story,thecurve,1171909460,,,,[454524],http://googleblog.blogspot.com/2007/01/show-us-your-university-campus-in-3d.html,4,Google's Build Your Campus in 3D Competition,,0
-97,,story,emmett,1171909762,,,,[454525],http://www.readwriteweb.com/archives/online_video_index.php,11,An Overview of the Five Gazillion Video Startups,,0
-98,,story,farmer,1171910119,,,,[454527],http://www.voip-news.com/feature/25-most-interesting-voip-startups-021207/,6,25 Most Interesting VoIP Startups,,0
-99,,story,pg,1171910249,,,,[454528],http://blog.radioactiveyak.com/2006/07/googleoffice-beta-google-powered.html,5,The Google-Powered Business,,0

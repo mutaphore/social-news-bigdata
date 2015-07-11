@@ -16,19 +16,24 @@ def get_request(url, text=True):
     if r.status_code == 200:
         return r.text if text else r.json()
     else:
-        print "Failed: status_code " + r.status_code
+        print "Failed: status_code " + str(r.status_code)
         return None
 
 
 def main():
     fieldnames = ["id", "deleted", "type", "by", "time", "text", "dead", "parent", 
                   "kids", "url", "score", "title", "parts", "descendants"]
-    with open("output.csv", "w") as csvfile:
-        max_id = get_request(MAXITEM_URL)
+    with open("output.csv", "a") as csvfile:
+        max_id = int(get_request(MAXITEM_URL))
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for i in xrange(1, 100):
+        for i in xrange(1, max_id):
+            sys.stdout.write("Downloading item id %d\r" % i)
+            sys.stdout.flush()
             obj = get_request(ITEM_URL.format(i), text=False)
+            if not obj:
+                print "Failed on %d" % i
+                continue
             #do some clean up here
             for key, value in obj.iteritems():
                 if isinstance(value, str) or isinstance(value, unicode):
