@@ -10,15 +10,13 @@ from crawler.items import CrawlerItem
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
     name = "pagecrawler"
-    output_path = os.getenv("HOME") + 
-        "/Google Drive/Realtime Big Data Analytics/project/code/crawler"
     start_urls = [
         "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
         # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history"
     ]
 
-    def clean_text(self, soup):
-        "Given soup, clean it and return the text"
+    def get_text(self, soup):
+        "Given soup, do preliminary cleans and return the text"
         # remove all script and style elements
         for script in soup(["script", "style"]):
             script.extract()
@@ -50,15 +48,13 @@ class PageCrawler(scrapy.Spider):
 
     def parse(self, response):
         soup = BeautifulSoup(response.body, "lxml")
-        # save content info for this page
-        CrawlerItem.url = response.url
-        CrawlerItem.num_links = self.get_num_links(soup) 
-        CrawlerItem.num_images = self.get_num_images(soup) 
-        # write html text out to file
-        text = self.clean_text(soup)
         #TODO: filename needs to be an id so we can grab it later
-        filename = response.url.split("/")[-2] + '.html'
-        with open(filename, 'w') as f:
-            f.write(str(response.headers) + "\n")
-            f.write(str(response.meta) + "\n")
-            f.write(text)
+        # save item
+        item = CrawlerItem()
+        item["item_id"] = 1
+        item["url"] = str(response.url)
+        item["headers"] = str(response.headers)
+        item["text"] = self.get_text(soup)
+        item["num_links"] = self.get_num_links(soup) 
+        item["num_images"] = self.get_num_images(soup) 
+        yield item

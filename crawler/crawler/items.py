@@ -9,7 +9,10 @@ import scrapy
 
 
 class CrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
+	# Fields for this item
+    item_id = scrapy.Field()
     url = scrapy.Field()
+    headers = scrapy.Field()
+    text = scrapy.Field()
     num_links = scrapy.Field()
     num_images = scrapy.Field()
