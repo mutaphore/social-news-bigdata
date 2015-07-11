@@ -32,7 +32,7 @@ def main():
             sys.stdout.flush()
             obj = get_request(ITEM_URL.format(i), text=False)
             if not obj:
-                print "Failed on %d" % i
+                print "Failed on item id %d" % i
                 continue
             #do some clean up here
             for key, value in obj.iteritems():
