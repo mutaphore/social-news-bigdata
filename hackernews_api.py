@@ -23,7 +23,8 @@ def get_request(url, text=True):
 def main():
     fieldnames = ["id", "deleted", "type", "by", "time", "text", "dead", "parent", 
                   "kids", "url", "score", "title", "parts", "descendants"]
-    with open("output.csv", "a") as csvfile:
+    path = "output.csv"
+    with open("path", "a" if os.path.isfile(path) else "w") as csvfile:
         max_id = int(get_request(MAXITEM_URL))
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()

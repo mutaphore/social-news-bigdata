@@ -16,3 +16,5 @@ class CrawlerItem(scrapy.Item):
     text = scrapy.Field()
     num_links = scrapy.Field()
     num_images = scrapy.Field()
+    num_scripts = scrapy.Field()
+    num_styles = scrapy.Field()

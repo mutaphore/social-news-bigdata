@@ -11,10 +11,15 @@ class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
     name = "pagecrawler"
     start_urls = [
-        "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
-        "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
-        "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html"
+        # "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
+        # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
+        # "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html",
+        "http://jacquesmattheij.com/if-you-have-nothing-to-hide",
     ]
+
+    def set_instance_id(self, instance_id):
+        self.instance_id = instance_id
+
 
     def get_text(self, soup):
         "Given soup, do preliminary cleans and return the text"
@@ -22,7 +27,7 @@ class PageCrawler(scrapy.Spider):
         for script in soup(["script", "style"]):
             script.extract()
         soup = BeautifulSoup(soup.prettify(), "lxml")
-        text = soup.get_text()
+        text = soup.get_text(" ", strip=True)
 
         # break into lines and remove leading and trailing space on each
         lines = (line.strip() for line in text.splitlines())
@@ -34,19 +39,6 @@ class PageCrawler(scrapy.Spider):
         return text.encode("utf-8")
 
 
-    def get_num_links(self, soup):
-        "Return number of links on the page"
-        a_tags = soup.find_all('a')
-        links = [link.get('href') for link in a_tags]
-        return len(links)
-
-
-    def get_num_images(self, soup):
-        "Return number of images on the page"
-        img_tags = soup.find_all('img')
-        return len(img_tags)
-
-
     def parse(self, response):
         soup = BeautifulSoup(response.body, "lxml")
         # save item
@@ -55,7 +47,9 @@ class PageCrawler(scrapy.Spider):
         item["item_id"] = "1"
         item["url"] = str(response.url)
         item["headers"] = str(response.headers)
+        item["num_links"] = len(soup.find_all('a'))
+        item["num_images"] = len(soup.find_all('img'))
+        item["num_scripts"] = len(soup.find_all('script'))
+        item["num_styles"] = len(soup.find_all('style'))
         item["text"] = self.get_text(soup)
-        item["num_links"] = self.get_num_links(soup) 
-        item["num_images"] = self.get_num_images(soup) 
         yield item
