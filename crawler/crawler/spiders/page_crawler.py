@@ -11,8 +11,9 @@ class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
     name = "pagecrawler"
     start_urls = [
-        "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
-        # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history"
+        "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
+        "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
+        "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html"
     ]
 
     def get_text(self, soup):
@@ -48,10 +49,10 @@ class PageCrawler(scrapy.Spider):
 
     def parse(self, response):
         soup = BeautifulSoup(response.body, "lxml")
-        #TODO: filename needs to be an id so we can grab it later
         # save item
         item = CrawlerItem()
-        item["item_id"] = 1
+        #TODO: filename needs to be an id so we can grab it later
+        item["item_id"] = "1"
         item["url"] = str(response.url)
         item["headers"] = str(response.headers)
         item["text"] = self.get_text(soup)

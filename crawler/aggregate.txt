@@ -1,2 +1,0 @@
-http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/
-{'Cteonnt-Length': ['16125'], 'Content-Language': ['en'], 'Set-Cookie': ['JSESSIONID=B443715D71D7AFB62476B33B92877B1E; Path=/'], 'Server': ['Apache'], 'Date': ['Sat, 11 Jul 2015 17:35:41 GMT'], 'Content-Type': ['text/html;charset=UTF-8']}
