@@ -79,13 +79,13 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'crawler.pipelines.CrawlerPipeline': 300,
-# }
+ITEM_PIPELINES = {
+   'crawler.pipelines.CrawlerPipeline': 300,
+}
 
 # This field is mandatory to enable feed exporting
 # FEED_URI = "file:///Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/feed_export.csv"
-FEED_URI = "s3://AKIAJJW2ANUWRE23QVPA:iEcVtQE79kCRtf0U2iGNCCLbwtXeIExoW6bJZbXy@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
+# FEED_URI = "s3://AKIAJJW2ANUWRE23QVPA:iEcVtQE79kCRtf0U2iGNCCLbwtXeIExoW6bJZbXy@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
 
 FEED_FORMAT = "csv"
 
