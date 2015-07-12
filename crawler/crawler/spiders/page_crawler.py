@@ -10,21 +10,15 @@ from crawler.items import CrawlerItem
 
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
-    name = "spider1"
-    #following can be omitted if we use start_requests
-    # start_urls = [
-        # "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
-        # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
-        # "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html",
-        # "http://jacquesmattheij.com/if-you-have-nothing-to-hide",
-    # ]
     DEFAULT_URLS_FILE = "/Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/urls.txt"
+    DEFAULT_SPIDER_ID = "myspider"
+    name = "spider1"
+    start_urls = []
 
     def __init__(self, spider_id=None, urls_file=None, *args, **kwargs):
+        "Initialize spider arguments"
         super(PageCrawler, self).__init__(*args, **kwargs)
-        # Initialize spider id argument if there is one
-        if spider_id:
-            self.spider_id = spider_id
+        self.spider_id = spider_id if spider_id else PageCrawler.DEFAULT_SPIDER_ID
         self.urls_file = urls_file if urls_file else PageCrawler.DEFAULT_URLS_FILE
 
 
