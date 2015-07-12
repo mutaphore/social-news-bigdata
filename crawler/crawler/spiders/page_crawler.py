@@ -48,11 +48,12 @@ class PageCrawler(scrapy.Spider):
 
 
     def parse(self, response):
+        "Parse response attributes into item"
         soup = BeautifulSoup(response.body, "lxml")
-        # save item
+        # save item fields
         item = CrawlerItem()
         #TODO: filename needs to be an id so we can grab it later
-        item["item_id"] = "1"
+        item["item_id"] = 1
         item["url"] = str(response.url)
         item["headers"] = str(response.headers)
         item["num_links"] = len(soup.find_all('a'))

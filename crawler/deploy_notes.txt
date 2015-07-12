@@ -1,3 +1,10 @@
+Installation
+------------
+Must install the following:
+scrapy
+scrapyd
+scrapyd-deploy
+
 Deploying
 ---------
 urls:
@@ -13,6 +20,6 @@ To deploy:
 scrapyd-deploy
 scrapyd-deploy default -p crawler
 
-Pass argument to spider:
+Pass arguments to spider:
 scrapy crawl myspider -a category=electronics
 curl http://localhost:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt

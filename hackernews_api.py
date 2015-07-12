@@ -3,6 +3,7 @@
 import os, sys
 import csv
 import re
+import argparse
 import requests
 
 BASE_URL = "https://hacker-news.firebaseio.com/v0"
@@ -21,14 +22,19 @@ def get_request(url, text=True):
 
 
 def main():
+    max_id = int(get_request(MAXITEM_URL))
+    parser = argparse.ArgumentParser(description='Make HackerNews API requests')
+    parser.add_argument('-start', dest='start_id', type=int, default=1, help='Start item id')
+    parser.add_argument('-end', dest='end_id', type=int, default=max_id, help='End item id')
+    parser.add_argument('-o', dest='outfile', type=str, default="output.csv", help='Output file')
+    args = parser.parse_args()
+
     fieldnames = ["id", "deleted", "type", "by", "time", "text", "dead", "parent", 
                   "kids", "url", "score", "title", "parts", "descendants"]
-    path = "output.csv"
-    with open("path", "a" if os.path.isfile(path) else "w") as csvfile:
-        max_id = int(get_request(MAXITEM_URL))
+    with open(args.outfile, "a" if os.path.isfile(args.outfile) else "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for i in xrange(1, max_id):
+        for i in xrange(args.start_id, args.end_id):
             sys.stdout.write("Downloading item id %d\r" % i)
             sys.stdout.flush()
             obj = get_request(ITEM_URL.format(i), text=False)
