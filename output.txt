@@ -1,1 +1,0 @@
-{"by":"pg","descendants":15,"id":1,"kids":[487171,15,234509,454410,82729],"score":61,"time":1160418111,"title":"Y Combinator","type":"story","url":"http://ycombinator.com"}

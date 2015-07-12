@@ -16,6 +16,7 @@ class CrawlerPipeline(object):
 
     def __init__(self):
         self.files = {}
+        self.exporter = None
 
 
     @classmethod
@@ -27,10 +28,11 @@ class CrawlerPipeline(object):
 
 
     def spider_opened(self, spider):
-        path = CrawlerPipeline.EXPORT_PATH + spider.spider_id + '_aggregate.csv'
+        name = spider.name
+        path = CrawlerPipeline.EXPORT_PATH + name + '_aggregate.csv'
         export_file = open(path, 'ab' if os.path.isfile(path) else 'wb')
 
-        self.files[spider.spider_id] = export_file
+        self.files[name] = export_file
         self.exporter = CsvItemExporter(export_file)
         self.exporter.fields_to_export = [
             "item_id", "url", "num_links", "num_images", 
@@ -40,8 +42,9 @@ class CrawlerPipeline(object):
 
 
     def spider_closed(self, spider):
+        name = spider.name
         self.exporter.finish_exporting()
-        export_file = self.files.pop(spider.spider_id)
+        export_file = self.files.pop(name)
         export_file.close()
 
 

@@ -1,0 +1,17 @@
+Deploying
+---------
+urls:
+curl http://localhost:6800/schedule.json -d project=crawler -d spider=spider1
+curl http://localhost:6800/listversions.json -d project=crawler
+curl http://localhost:6800/delversion.json -d project=crawler -d version=123
+curl http://localhost:6800/delproject.json -d project=crawler
+
+List all project:
+scrapyd-deploy -l
+
+To deploy:
+scrapyd-deploy
+scrapyd-deploy default -p crawler
+
+
+

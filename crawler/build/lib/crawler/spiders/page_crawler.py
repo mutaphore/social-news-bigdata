@@ -11,22 +11,12 @@ from crawler.items import CrawlerItem
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
     name = "spider1"
-    #following can be omitted if we use start_requests
-    # start_urls = [
+    start_urls = [
         # "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
         # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
         # "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html",
         # "http://jacquesmattheij.com/if-you-have-nothing-to-hide",
-    # ]
-    DEFAULT_URLS_FILE = "/Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/urls.txt"
-
-    def __init__(self, spider_id=None, urls_file=None, *args, **kwargs):
-        super(PageCrawler, self).__init__(*args, **kwargs)
-        # Initialize spider id argument if there is one
-        if spider_id:
-            self.spider_id = spider_id
-        self.urls_file = urls_file if urls_file else PageCrawler.DEFAULT_URLS_FILE
-
+    ]
 
     def get_text(self, soup):
         "Given soup, do preliminary cleans and return the text"
@@ -48,7 +38,8 @@ class PageCrawler(scrapy.Spider):
 
     def start_requests(self):
         "This will yield new urls from the urls file"
-        with open(self.urls_file, 'r') as urls:
+        path = "/Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/urls.txt"
+        with open(path, 'r') as urls:
             for url in urls:
                 yield Request(url, self.parse)
 
