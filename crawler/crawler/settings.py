@@ -61,9 +61,9 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'crawler.pipelines.CrawlerPipeline': 300,
-}
+# ITEM_PIPELINES = {
+#    'crawler.pipelines.CrawlerPipeline': 300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -83,3 +83,31 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# This field is mandatory to enable feed exporting
+# FEED_URI = "file:///Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/feed_export.csv"
+
+FEED_FORMAT = "csv"
+
+FEED_EXPORT_FIELDS = [
+    "item_id", "url", "num_links", "num_images", 
+    "num_scripts", "num_styles", "headers", "text"
+]
+
+# Feed exporters
+FEED_EXPORTERS_BASE = {
+    'json': 'scrapy.exporters.JsonItemExporter',
+    'jsonlines': 'scrapy.exporters.JsonLinesItemExporter',
+    'csv': 'scrapy.exporters.CsvItemExporter',
+    'xml': 'scrapy.exporters.XmlItemExporter',
+    'marshal': 'scrapy.exporters.MarshalItemExporter',
+}
+
+# Feed storage
+FEED_STORAGES_BASE = {
+    '': 'scrapy.extensions.feedexport.FileFeedStorage',
+    'file': 'scrapy.extensions.feedexport.FileFeedStorage',
+    'stdout': 'scrapy.extensions.feedexport.StdoutFeedStorage',
+    's3': 'scrapy.extensions.feedexport.S3FeedStorage',
+    'ftp': 'scrapy.extensions.feedexport.FTPFeedStorage',
+}

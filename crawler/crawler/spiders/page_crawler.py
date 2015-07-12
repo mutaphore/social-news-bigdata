@@ -3,23 +3,20 @@ import os
 import re
 
 import scrapy
+from scrapy.http import Request
 from bs4 import BeautifulSoup
 
 from crawler.items import CrawlerItem
 
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
-    name = "pagecrawler"
+    name = "spider1"
     start_urls = [
         # "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/",
         # "http://sauravtom.tumblr.com/post/123807612560/oldest-surviving-melody-in-history",
         # "http://backreaction.blogspot.com/2015/06/no-gravity-hasnt-killed-schrodingers-cat.html",
-        "http://jacquesmattheij.com/if-you-have-nothing-to-hide",
+        # "http://jacquesmattheij.com/if-you-have-nothing-to-hide",
     ]
-
-    def set_instance_id(self, instance_id):
-        self.instance_id = instance_id
-
 
     def get_text(self, soup):
         "Given soup, do preliminary cleans and return the text"
@@ -37,6 +34,13 @@ class PageCrawler(scrapy.Spider):
         text = ' '.join(chunk for chunk in chunks if chunk)
         # encode to utf-8
         return text.encode("utf-8")
+
+
+    def start_requests(self):
+        "This will yield new urls from the urls file"
+        with open('urls.txt', 'r') as urls:
+            for url in urls:
+                yield Request(url, self.parse)
 
 
     def parse(self, response):
