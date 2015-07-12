@@ -14,7 +14,6 @@ BOT_NAME = 'crawler'
 SPIDER_MODULES = ['crawler.spiders']
 NEWSPIDER_MODULE = 'crawler.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'crawler (+http://www.yourdomain.com)'
 
@@ -59,12 +58,6 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 #    'scrapy.telnet.TelnetConsole': None,
 #}
 
-# Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'crawler.pipelines.CrawlerPipeline': 300,
-}
-
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 # NOTE: AutoThrottle will honour the standard settings for concurrency and delay
@@ -84,30 +77,37 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# Configure item pipelines
+# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
+# ITEM_PIPELINES = {
+#    'crawler.pipelines.CrawlerPipeline': 300,
+# }
+
 # This field is mandatory to enable feed exporting
 # FEED_URI = "file:///Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/feed_export.csv"
+FEED_URI = "s3://AKIAJJW2ANUWRE23QVPA:iEcVtQE79kCRtf0U2iGNCCLbwtXeIExoW6bJZbXy@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
 
-# FEED_FORMAT = "csv"
+FEED_FORMAT = "csv"
 
-# FEED_EXPORT_FIELDS = [
-#     "item_id", "url", "num_links", "num_images", 
-#     "num_scripts", "num_styles", "headers", "text"
-# ]
+FEED_EXPORT_FIELDS = [
+    "item_id", "url", "num_links", "num_images", 
+    "num_scripts", "num_styles", "headers", "text"
+]
 
-# # Feed exporters
-# FEED_EXPORTERS_BASE = {
-#     'json': 'scrapy.exporters.JsonItemExporter',
-#     'jsonlines': 'scrapy.exporters.JsonLinesItemExporter',
-#     'csv': 'scrapy.exporters.CsvItemExporter',
-#     'xml': 'scrapy.exporters.XmlItemExporter',
-#     'marshal': 'scrapy.exporters.MarshalItemExporter',
-# }
+# Feed exporters
+FEED_EXPORTERS_BASE = {
+    'json': 'scrapy.exporters.JsonItemExporter',
+    'jsonlines': 'scrapy.exporters.JsonLinesItemExporter',
+    'csv': 'scrapy.exporters.CsvItemExporter',
+    'xml': 'scrapy.exporters.XmlItemExporter',
+    'marshal': 'scrapy.exporters.MarshalItemExporter',
+}
 
-# # Feed storage
-# FEED_STORAGES_BASE = {
-#     '': 'scrapy.extensions.feedexport.FileFeedStorage',
-#     'file': 'scrapy.extensions.feedexport.FileFeedStorage',
-#     'stdout': 'scrapy.extensions.feedexport.StdoutFeedStorage',
-#     's3': 'scrapy.extensions.feedexport.S3FeedStorage',
-#     'ftp': 'scrapy.extensions.feedexport.FTPFeedStorage',
-# }
+# Feed storage
+FEED_STORAGES_BASE = {
+    '': 'scrapy.extensions.feedexport.FileFeedStorage',
+    'file': 'scrapy.extensions.feedexport.FileFeedStorage',
+    'stdout': 'scrapy.extensions.feedexport.StdoutFeedStorage',
+    's3': 'scrapy.extensions.feedexport.S3FeedStorage',
+    'ftp': 'scrapy.extensions.feedexport.FTPFeedStorage',
+}

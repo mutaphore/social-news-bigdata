@@ -27,7 +27,7 @@ class CrawlerPipeline(object):
 
 
     def spider_opened(self, spider):
-        path = CrawlerPipeline.EXPORT_PATH + spider.spider_id + '_aggregate.csv'
+        path = CrawlerPipeline.EXPORT_PATH + spider.spider_id + '_export.csv'
         export_file = open(path, 'ab' if os.path.isfile(path) else 'wb')
 
         self.files[spider.spider_id] = export_file

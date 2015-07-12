@@ -11,7 +11,7 @@ from crawler.items import CrawlerItem
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
     DEFAULT_URLS_FILE = "/Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/urls.txt"
-    DEFAULT_SPIDER_ID = "myspider"
+    DEFAULT_SPIDER_ID = "spider1"
     name = "spider1"
     start_urls = []
 
@@ -48,8 +48,9 @@ class PageCrawler(scrapy.Spider):
 
 
     def parse(self, response):
+        "Parse response attributes into item"
         soup = BeautifulSoup(response.body, "lxml")
-        # save item
+        # save item fields
         item = CrawlerItem()
         #TODO: filename needs to be an id so we can grab it later
         item["item_id"] = 1
