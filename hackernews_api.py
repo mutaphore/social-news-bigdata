@@ -12,7 +12,11 @@ MAXITEM_URL = BASE_URL + "/maxitem.json"
 
 def get_request(url, text=True):
     "Make GET request to the API for a single item. Set text to False to return dict"
-    r = requests.get(url)
+    try:
+        r = requests.get(url)
+    except requests.exceptions.ConnectionError:
+        print "Failed: connection refused"
+        return None
     r.encoding = "utf-8"
     if r.status_code == 200:
         return r.text if text else r.json()

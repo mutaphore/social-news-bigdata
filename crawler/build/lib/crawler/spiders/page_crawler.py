@@ -44,6 +44,7 @@ class PageCrawler(scrapy.Spider):
         "This will yield new urls from the urls file"
         with open(self.urls_file, 'r') as urls:
             for url in urls:
+                url = url.strip()
                 yield Request(url, self.parse)
 
 
