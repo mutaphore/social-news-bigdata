@@ -85,7 +85,8 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 
 # This field is mandatory to enable feed exporting
 # FEED_URI = "file:///Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/feed_export.csv"
-FEED_URI = "s3://AKIAJJW2ANUWRE23QVPA:iEcVtQE79kCRtf0U2iGNCCLbwtXeIExoW6bJZbXy@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
+FEED_URI = "file:///home/ubuntu/test_feed_export.csv"
+# FEED_URI = "s3://AKIAJFXCX74LKJSSYS3Q:dZXaUMAVwdLIIKDaP0jGdCeR3e57HQeSS0XMM/Uk@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
 
 FEED_FORMAT = "csv"
 

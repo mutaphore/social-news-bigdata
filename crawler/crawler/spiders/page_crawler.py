@@ -48,7 +48,7 @@ class PageCrawler(scrapy.Spider):
             if ext == '.csv':
                 reader = csv.DictReader(input_file)
                 for row in reader:
-                    yield Request(row['url'], self.parse)
+                    yield Request(row['url'], self.parse, meta={'item_id': row['id']})
             else:
                 for line in input_file:
                     yield Request(line.strip(), self.parse)
@@ -60,7 +60,7 @@ class PageCrawler(scrapy.Spider):
         # save item fields
         item = CrawlerItem()
         #TODO: filename needs to be an id so we can grab it later
-        item["item_id"] = 1
+        item["item_id"] = response.meta['item_id']
         item["url"] = str(response.url)
         item["headers"] = str(response.headers)
         item["num_links"] = len(soup.find_all('a'))

@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import csv
 
 import scrapy
 from scrapy.http import Request
@@ -42,16 +43,15 @@ class PageCrawler(scrapy.Spider):
 
     def start_requests(self):
         "This will yield new urls from the urls file"
-        with open(self.urls_file, 'r') as lines:
-            for line in lines:
-                line = line.strip()
-                #url in regular line
-                # url = line.strip()
-                #url in csv line
-                vals = line.split(",")
-                if vals[2] == "story":
-                    url = vals[9]
-                    yield Request(url, self.parse)
+        ext = os.path.splitext(self.urls_file)[-1].lower()
+        with open(self.urls_file, 'r') as input_file:
+            if ext == '.csv':
+                reader = csv.DictReader(input_file)
+                for row in reader:
+                    yield Request(row['url'], self.parse, meta={'item_id': row['id']})
+            else:
+                for line in input_file:
+                    yield Request(line.strip(), self.parse)
 
 
     def parse(self, response):
@@ -60,7 +60,7 @@ class PageCrawler(scrapy.Spider):
         # save item fields
         item = CrawlerItem()
         #TODO: filename needs to be an id so we can grab it later
-        item["item_id"] = 1
+        item["item_id"] = response.meta['item_id']
         item["url"] = str(response.url)
         item["headers"] = str(response.headers)
         item["num_links"] = len(soup.find_all('a'))
