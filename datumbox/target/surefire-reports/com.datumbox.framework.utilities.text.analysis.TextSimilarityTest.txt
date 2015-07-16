@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.datumbox.framework.utilities.text.analysis.TextSimilarityTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 sec - in com.datumbox.framework.utilities.text.analysis.TextSimilarityTest

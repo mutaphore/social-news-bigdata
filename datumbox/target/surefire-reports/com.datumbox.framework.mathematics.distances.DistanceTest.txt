@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.datumbox.framework.mathematics.distances.DistanceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 sec - in com.datumbox.framework.mathematics.distances.DistanceTest

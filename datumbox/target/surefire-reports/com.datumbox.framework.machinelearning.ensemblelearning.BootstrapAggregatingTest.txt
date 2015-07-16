@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.datumbox.framework.machinelearning.ensemblelearning.BootstrapAggregatingTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.864 sec - in com.datumbox.framework.machinelearning.ensemblelearning.BootstrapAggregatingTest

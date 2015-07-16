@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.datumbox.common.utilities.PHPfunctionsTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec - in com.datumbox.common.utilities.PHPfunctionsTest
