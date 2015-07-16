@@ -42,10 +42,16 @@ class PageCrawler(scrapy.Spider):
 
     def start_requests(self):
         "This will yield new urls from the urls file"
-        with open(self.urls_file, 'r') as urls:
-            for url in urls:
-                url = url.strip()
-                yield Request(url, self.parse)
+        with open(self.urls_file, 'r') as lines:
+            for line in lines:
+                line = line.strip()
+                #url in regular line
+                # url = line.strip()
+                #url in csv line
+                vals = line.split(",")
+                if vals[2] == "story":
+                    url = vals[9]
+                    yield Request(url, self.parse)
 
 
     def parse(self, response):
