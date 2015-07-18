@@ -42,13 +42,14 @@ class PageCrawler(scrapy.Spider):
 
 
     def start_requests(self):
-        "This will yield new urls from the urls file"
+        "This function creates new requests for the spider from the urls file"
         ext = os.path.splitext(self.urls_file)[-1].lower()
         with open(self.urls_file, 'r') as input_file:
             if ext == '.csv':
                 reader = csv.DictReader(input_file)
                 for row in reader:
-                    yield Request(row['url'], self.parse, meta={'item_id': row['id']})
+                    if row['type'] == 'story':
+                        yield Request(row['url'], self.parse, meta={'item_id': row['id']})
             else:
                 for line in input_file:
                     yield Request(line.strip(), self.parse)

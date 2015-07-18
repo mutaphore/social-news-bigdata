@@ -69,7 +69,7 @@ Pass arguments to spider:
 scrapy crawl myspider -a category=electronics
 curl http://localhost:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt
 curl http://ec2-52-2-101-252.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt
-curl http://ec2-52-2-101-252.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=output_3.csv
+curl http://ec2-52-2-101-252.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.csv
 
 List all projects:
 scrapyd-deploy -l

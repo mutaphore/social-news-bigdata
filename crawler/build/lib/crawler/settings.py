@@ -84,9 +84,19 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 # }
 
 # This field is mandatory to enable feed exporting
+FEED_URI = "file:///home/ubuntu/spider_export.csv"
 # FEED_URI = "file:///Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/feed_export.csv"
-FEED_URI = "file:///home/ubuntu/test_feed_export.csv"
-# FEED_URI = "s3://AKIAJFXCX74LKJSSYS3Q:dZXaUMAVwdLIIKDaP0jGdCeR3e57HQeSS0XMM/Uk@deweichen/hackernews/%(name)s/%(time)s/feed_export.csv"
+
+# AWS_ACCESS_KEY_ID = "AKIAI7OPZTJ2YQU3WG6A"
+# AWS_SECRET_ACCESS_KEY = "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"
+
+# AWS_ACCESS_KEY_ID = "AKIAJFXCX74LKJSSYS3Q"
+# AWS_SECRET_ACCESS_KEY = "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"
+
+AWS_ACCESS_KEY_ID = "AKIAIN7HDD26XYH4PIBQ"
+AWS_SECRET_ACCESS_KEY = "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"
+
+# FEED_URI = "s3://deweichen/hackernews/%(name)s/%(time)s/spider_export.csv"
 
 FEED_FORMAT = "csv"
 
