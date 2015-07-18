@@ -11,7 +11,7 @@ from crawler.items import CrawlerItem
 
 class PageCrawler(scrapy.Spider):
     """A generic crawler that scrapes text and other stuff from webpages"""
-    DEFAULT_URLS_FILE = "/Users/deweichen/Google Drive/Realtime Big Data Analytics/project/code/crawler/urls.txt"
+    DEFAULT_URLS_FILE = "urls.txt"
     DEFAULT_SPIDER_ID = "spider1"
     name = "spider1"
     start_urls = []
@@ -24,7 +24,7 @@ class PageCrawler(scrapy.Spider):
 
 
     def get_text(self, soup):
-        "Given soup, do preliminary cleans and return the text"
+        "Given soup object, do preliminary cleans and return the text parsed"
         # remove all script and style elements
         for script in soup(["script", "style"]):
             script.extract()
@@ -48,12 +48,13 @@ class PageCrawler(scrapy.Spider):
             if ext == '.csv':
                 reader = csv.DictReader(input_file)
                 for row in reader:
-                    if row['type'] == 'story':
-                        print "YIELD url {0}".format(row['url'])
+                    #check type is 'story', for hackernews API only
+                    if row['type'] == 'story' and row['url']:
                         yield Request(row['url'], self.parse, meta={'item_id': row['id']})
             else:
                 for line in input_file:
-                    yield Request(line.strip(), self.parse)
+                    if line:
+                        yield Request(line.strip(), self.parse)
 
 
     def parse(self, response):
