@@ -21,6 +21,7 @@ class PageCrawler(scrapy.Spider):
         super(PageCrawler, self).__init__(*args, **kwargs)
         self.spider_id = spider_id if spider_id else PageCrawler.DEFAULT_SPIDER_ID
         self.urls_file = urls_file if urls_file else PageCrawler.DEFAULT_URLS_FILE
+        self.news_site = news_site if news_site else "hackernews"
 
 
     def get_text(self, soup):
