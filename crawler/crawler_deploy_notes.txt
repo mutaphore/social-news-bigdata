@@ -10,6 +10,8 @@ twisted
 
 Scrapyd Config
 --------------
+Run scrapyd at input file directory.
+
 Create .scrapyd.conf at home directory ~ with following contents:
 
 [scrapyd]
@@ -59,17 +61,18 @@ curl http://localhost:6800/delproject.json -d project=crawler
 curl http://localhost:6800/cancel.json -d project=crawler -d job=6487ec79947edab326d6db28a2d86511e8247444
 
 EC2:
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/listversions.json -d project=crawler
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/delversion.json -d project=crawler -d version=123
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/delproject.json -d project=crawler
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/cancel.json -d project=crawler -d job=5d14cb4a2b6111e5896e12e5826186bf
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/listversions.json -d project=crawler
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/delversion.json -d project=crawler -d version=123
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/delproject.json -d project=crawler
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/cancel.json -d project=crawler -d job=5d14cb4a2b6111e5896e12e5826186bf
 
 Pass arguments to spider:
 scrapy crawl myspider -a category=electronics
 curl http://localhost:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt
-curl http://ec2-52-3-55-83.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=output_0_storyitems.csv
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=urls.txt
+curl http://ec2-52-3-193-218.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=output_1_storyitems.csv
+curl http://ec2-52-2-101-252.compute-1.amazonaws.com:6800/schedule.json -d project=crawler -d spider=spider1 -d spider_id=id1 -d urls_file=reddit_output.csv
 
 List all projects:
 scrapyd-deploy -l

@@ -21,7 +21,6 @@ class PageCrawler(scrapy.Spider):
         super(PageCrawler, self).__init__(*args, **kwargs)
         self.spider_id = spider_id if spider_id else PageCrawler.DEFAULT_SPIDER_ID
         self.urls_file = urls_file if urls_file else PageCrawler.DEFAULT_URLS_FILE
-        self.news_site = news_site if news_site else "hackernews"
 
 
     def get_text(self, soup):
@@ -49,9 +48,7 @@ class PageCrawler(scrapy.Spider):
             if ext == '.csv':
                 reader = csv.DictReader(input_file)
                 for row in reader:
-                    #check type is 'story', for hackernews API only
-                    if row['type'] == 'story' and row['url']:
-                        yield Request(row['url'], self.parse, meta={'item_id': row['id']})
+                    yield Request(row['url'], self.parse, meta={'item_id': row['id']})
             else:
                 for line in input_file:
                     if line:
