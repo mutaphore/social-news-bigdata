@@ -12,7 +12,7 @@ from scrapy import signals
 from scrapy.exporters import CsvItemExporter, XmlItemExporter
 
 class CrawlerPipeline(object):
-    EXPORT_PATH = os.getenv("HOME") + "/Google Drive/Realtime Big Data Analytics/project/code/crawler/"
+    EXPORT_PATH = os.getenv("HOME")
 
     def __init__(self):
         self.files = {}
@@ -27,7 +27,7 @@ class CrawlerPipeline(object):
 
 
     def spider_opened(self, spider):
-        path = CrawlerPipeline.EXPORT_PATH + spider.spider_id + '_export.csv'
+        path = CrawlerPipeline.EXPORT_PATH + "/" + spider.spider_id + '_export.csv'
         export_file = open(path, 'ab' if os.path.isfile(path) else 'wb')
 
         self.files[spider.spider_id] = export_file
