@@ -2,6 +2,7 @@ import sys
 import os
 import re
 import csv
+import urlparse
 
 import scrapy
 from scrapy.http import Request
@@ -41,6 +42,15 @@ class PageCrawler(scrapy.Spider):
         return text.encode("utf-8")
 
 
+    def clean_url(self, url):
+        "Clean a url"
+        if not url or url[-4:] == ".pdf" or url[-4:] == ".jpg":
+            return ""
+        r1 = urlparse.urlsplit(url)
+        cleaned_url = r1.geturl()
+        return cleaned_url
+
+
     def start_requests(self):
         "This function creates new requests for the spider from the urls file"
         ext = os.path.splitext(self.urls_file)[-1].lower()
@@ -48,7 +58,9 @@ class PageCrawler(scrapy.Spider):
             if ext == '.csv':
                 reader = csv.DictReader(input_file)
                 for row in reader:
-                    yield Request(row['url'], self.parse, meta={'item_id': row['id']})
+                    cleaned_url = self.clean_url(row['url'])
+                    if cleaned_url:
+                        yield Request(row['url'], self.parse, meta={'item_id': row['id']})
             else:
                 for line in input_file:
                     if line:
