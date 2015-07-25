@@ -15,7 +15,15 @@ SELECT TRANSFORM(record_line)
 USING 'remove_title_comma.py' AS id, score, title, url, author, num_comments, created_utc, subreddit, domain
 FROM records;
 
--- Get distinct ids with its max possible score
+-- Distinct data
+CREATE EXTERNAL TABLE reddit_data_distinct (id string, score int, title string, url string, author string, num_comments int, created_utc float, subreddit string, domain string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+INSERT INTO TABLE reddit_data_distinct
+SELECT DISTINCT * 
+FROM reddit_data;
+
+-- For each id, get its max possible score
 CREATE EXTERNAL TABLE id_maxscore (id string, maxscore int)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
@@ -24,10 +32,11 @@ SELECT reddit_data.id, MAX(reddit_data.score)
 FROM reddit_data
 GROUP BY reddit_data.id;
 
+-- Final sorted data by joining with id_maxscore
 CREATE EXTERNAL TABLE reddit_data_sorted (id string, score int, title string, url string, author string, num_comments int, created_utc float, subreddit string, domain string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 INSERT OVERWRITE TABLE reddit_data_sorted
-SELECT reddit_data.* from reddit_data LEFT JOIN id_maxscore 
-ON (reddit_data.id = id_maxscore.id AND reddit_data.score = id_maxscore.id)
+SELECT * from reddit_data_distinct LEFT SEMI JOIN id_maxscore 
+ON (reddit_data_distinct.id = id_maxscore.id AND reddit_data_distinct.score = id_maxscore.maxscore)
 ORDER BY score DESC;
