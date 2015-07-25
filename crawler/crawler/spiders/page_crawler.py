@@ -44,7 +44,7 @@ class PageCrawler(scrapy.Spider):
 
     def clean_url(self, url):
         "Clean a url"
-        if not url or url[-4:] == ".pdf" or url[-4:] == ".jpg":
+        if not url or url[-4:].lower() in (".pdf", ".jpg", ".png", ".gif", ".tif"):
             return ""
         r1 = urlparse.urlsplit(url)
         cleaned_url = r1.geturl()

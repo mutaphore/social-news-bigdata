@@ -12,9 +12,10 @@ def is_good_url(url):
         return False
     #check the response
     try:
-        r = requests.get(url)
-    except requests.exceptions.ConnectionError:
-        print "ConnectionError on url %r" % url
+        r = requests.get(url, timeout=5)
+    except:
+        e = sys.exc_info()[0]
+        print "Error: %s" % e
         return False
     if r.status_code != 200:
         return False
@@ -27,11 +28,16 @@ def get_urls(infile, outfile):
     with open(infile, "r") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+            sys.stdout.write("Working on item id {0}: {1}\n".format(row['id'], row['url']))
             if is_good_url(row['url']):
                 out.write(row['id'] + "," + row['url'] + "\n")
     out.close()
 
 
 if __name__ == '__main__':
-    get_urls("output_3_storyitems.csv", "output_3_urls.csv")
+    parser = argparse.ArgumentParser(description='Parses item id and url from csv to a file')
+    parser.add_argument('-i', dest='infile', type=str, default="output_3_storyitems.csv", help='Input file')
+    parser.add_argument('-o', dest='outfile', type=str, default="output_3_urls.csv", help='Output file')
+    args = parser.parse_args()
+    get_urls(args.infile, args.outfile)
 
