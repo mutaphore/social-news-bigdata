@@ -7,6 +7,8 @@ import urlparse
 import scrapy
 from scrapy.http import Request
 from bs4 import BeautifulSoup
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 from crawler.items import CrawlerItem
 
@@ -22,6 +24,7 @@ class PageCrawler(scrapy.Spider):
         super(PageCrawler, self).__init__(*args, **kwargs)
         self.spider_id = spider_id if spider_id else PageCrawler.DEFAULT_SPIDER_ID
         self.urls_file = urls_file if urls_file else PageCrawler.DEFAULT_URLS_FILE
+        self.url_validator = URLValidator()
 
 
     def get_text(self, soup):
@@ -44,7 +47,14 @@ class PageCrawler(scrapy.Spider):
 
     def clean_url(self, url):
         "Clean a url"
+        url = url.strip()
+        #check the black list
         if not url or url[-4:].lower() in (".pdf", ".jpg", ".png", ".gif", ".tif"):
+            return ""
+        #validate the url
+        try:
+            self.url_validator(url)
+        except:
             return ""
         r1 = urlparse.urlsplit(url)
         cleaned_url = r1.geturl()
@@ -54,9 +64,11 @@ class PageCrawler(scrapy.Spider):
     def start_requests(self):
         "This function creates new requests for the spider from the urls file"
         ext = os.path.splitext(self.urls_file)[-1].lower()
-        with open(self.urls_file, 'r') as input_file:
+        with open(self.urls_file, 'rU') as input_file:
             if ext == '.csv':
-                reader = csv.DictReader(input_file)
+                dialect = csv.Sniffer().sniff(input_file.read(1024))
+                input_file.seek(0)
+                reader = csv.DictReader(input_file, dialect=dialect)
                 for row in reader:
                     cleaned_url = self.clean_url(row['url'])
                     if cleaned_url:
