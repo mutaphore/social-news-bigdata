@@ -17,10 +17,10 @@ TwoXChromosomes,1800.0913
 UpliftingNews,1426.8058
 WritingPrompts,1027.649
 \N,1461.7639
-announcements,1632.5588
+announcements,1707.9077
 askscience,2094.7043
 aww,5059.262
-blog,1799.5378
+blog,1814.7881
 books,2141.3796
 creepy,2493.34
 dataisbeautiful,1997.5376
