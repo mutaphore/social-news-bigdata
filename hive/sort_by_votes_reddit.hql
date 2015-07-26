@@ -2,7 +2,7 @@
 
 -- Get the initial records
 CREATE EXTERNAL TABLE records (record_line string)
-LOCATION '/user/cloudera/hiveInput/';
+LOCATION '/user/cloudera/hiveInputReddit/';
 
 CREATE EXTERNAL TABLE reddit_data (id string, score int, title string, url string, author string, num_comments int, created_utc float, subreddit string, domain string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
