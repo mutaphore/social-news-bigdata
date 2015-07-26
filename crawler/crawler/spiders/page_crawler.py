@@ -47,11 +47,11 @@ class PageCrawler(scrapy.Spider):
 
     def clean_url(self, url):
         "Clean a url"
-        url = url.strip()
         #check the black list
         if not url or url[-4:].lower() in (".pdf", ".jpg", ".png", ".gif", ".tif"):
             return ""
         #validate the url
+        url = url.strip()
         try:
             self.url_validator(url)
         except:
@@ -64,8 +64,10 @@ class PageCrawler(scrapy.Spider):
     def start_requests(self):
         "This function creates new requests for the spider from the urls file"
         ext = os.path.splitext(self.urls_file)[-1].lower()
+        #must do 'rU' for universal new line compatibility, otherwise crash!
         with open(self.urls_file, 'rU') as input_file:
             if ext == '.csv':
+                #get the appropriate csv dialect
                 dialect = csv.Sniffer().sniff(input_file.read(1024))
                 input_file.seek(0)
                 reader = csv.DictReader(input_file, dialect=dialect)
