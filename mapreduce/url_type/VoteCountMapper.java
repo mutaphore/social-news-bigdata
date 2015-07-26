@@ -7,7 +7,7 @@ import org.apache.hadoop.io.ArrayWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class VoteCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class VoteCountMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable> {
 
     private int getNumComments(String line) {
         String[] items = line.split(",");
@@ -19,31 +19,13 @@ public class VoteCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
         StringTokenizer tokenizer = new StringTokenizer(line, ",");
     }
 
-    private List<String> lineParse(String line) {
-        List<String> items = new List<String>();
-
-        // Check if we have a valid line
-        try {
-            Integer.parseInt(line.split(",")[0]);
-        } catch(NumberFormatException) {
-            return null;
-        }
-
-        Pattern pattern = Pattern.compile("\\s*(\"[^\"]*\"|[^,]*)\\s*");
-        Matcher matcher = pattern.matcher(line);
-        while (matcher.find()) {
-            items.add(matcher.group(1));
-        }
-        // Check if we got all the fields
-        if (items.size() != 14) {
-            return null;
-        }
-        
-    }
-
     @Override
     public void map(LongWritable key, Text value, Context context) {
         String line = value.toString(); 
-        i
+        String[] parts = line.split(",");
+        // HN Fields: id, type, author(by), time, text, url, score, title, descendants
+        int numComments = Integer.parseInt(parts[8]);
+        int numVotes = Integer.parseInt(parts[6]);
+        context.write(new IntWritable(numComments), new IntWritable(numVotes));
     }
 }

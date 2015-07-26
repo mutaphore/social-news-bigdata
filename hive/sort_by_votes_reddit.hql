@@ -1,3 +1,5 @@
+-- This query removes duplicates and sorts by number of votes on reddit data
+
 -- Reddit fields: id, score, title, url, author, num_comments, created_utc, subreddit, domain
 
 -- Get the initial records
