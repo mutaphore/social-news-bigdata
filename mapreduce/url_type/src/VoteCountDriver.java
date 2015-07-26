@@ -32,7 +32,7 @@ public class VoteCountDriver {
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(FloatWritable.class);
         
-        // job.setOutputFormatClass(PageRankOutputFormat.class);
+        job.setOutputFormatClass(CsvOutputFormat.class);
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }

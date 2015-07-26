@@ -6,15 +6,16 @@
 
 # Define variables
 HADOOP_JARS=("/usr/lib/hadoop/hadoop-annotations-2.6.0-cdh5.4.0.jar" \
-	     "/usr/lib/hadoop-0.20-mapreduce/hadoop-core-2.6.0-mr1-cdh5.4.0.jar" \
+             "/usr/lib/hadoop-0.20-mapreduce/hadoop-core-2.6.0-mr1-cdh5.4.0.jar" \
              "/usr/lib/hadoop/hadoop-common.jar" \
              "/usr/lib/hadoop-hdfs/hadoop-hdfs.jar")
 join=$(printf ":%s" "${HADOOP_JARS[@]}")
 JAVAC_CLASSPATH=${join:1}
 
-SRC_FILES="src/VoteCountMapper.java src/VoteCountReducer.java src/VoteCountDriver.java"
+SRC_FILES="src/VoteCountMapper.java src/VoteCountReducer.java src/VoteCountDriver.java src/CsvOutputFormat.java"
 PROG_JAR="votecount.jar"
 MAIN_CLASS="VoteCountDriver"
+HDFS_OUTPUT_DIR="votecount_output"
 
 # Cleanup local files
 rm bin/*
@@ -27,8 +28,11 @@ jar cvf ../$PROG_JAR *.class
 cd ..
 
 # Cleanup HDFS old output files
-hdfs dfs -rm -r votecount_output
+hdfs dfs -rm -r $HDFS_OUTPUT_DIR
 
 # Run hadoop
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$PWD/$PROG_JAR
-hadoop $MAIN_CLASS /user/hive/warehouse/hn_data_clean/000000_0 votecount_output
+hadoop $MAIN_CLASS /user/hive/warehouse/hn_data_clean/000000_0 $HDFS_OUTPUT_DIR
+
+# Get results
+hdfs dfs -get $HDFS_OUTPUT_DIR
