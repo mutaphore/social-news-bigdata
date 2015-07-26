@@ -44,13 +44,20 @@ class UnicodeDictWriter:
 
 
 
-def getSubmissions(afterid):
+def getSubmissions(afterid, postcounter):
     try:
-        submissions = r.get_content(url='http://www.reddit.com/top', params={'after': afterid, 'limit':1000, 't':'all'});
+        print 'get submissions'
+        print 'afterid: ' + str(afterid)
+        print 'postcounter: ' + str(postcounter)
+
+
+        submissions = r.get_content(url='http://www.reddit.com/top', params={'after': afterid, 'limit':100, 't':'all', 'count': postcounter});
+        # submissions = r.get_content(url='http://www.reddit.com/top', params={'after': afterid, 'limit':100, 't':'all', 'sort':'top'});
+
     except HTTPException:
         print 'Retry'
         time.sleep(2)
-        submissions = r.get_content(url='http://www.reddit.com/top', params={'after': afterid, 'limit':1000, 't':'all'});
+        submissions = r.get_content(url='http://www.reddit.com/top', params={'after': afterid, 'limit':100, 't':'all', 'sort':'top', 'count': postcounter});
 
     return submissions
 
@@ -80,10 +87,10 @@ afterid = ''
 
 while postcounter < numposts:
 
-    submissions = getSubmissions(afterid)
+    submissions = getSubmissions('t3_'+afterid, postcounter)
 
     for post in submissions:
-        print str(postcounter) + ', ' + str(post.score) + ',' + post.id + ',' + post.title +  ',' + post.url
+        # print str(postcounter) + ', ' + str(post.score) + ',' + post.id + ',' + post.title +  ',' + post.url
         #spamwriter.writerow([post.id, post.title, post.url,post.score, str(post.author), post.num_comments, post.created_utc, post.subreddit])
 
         #pprint(vars(post.author))
