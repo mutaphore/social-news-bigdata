@@ -12,7 +12,7 @@ ADD FILE /home/dc3186/bigdata_project/hive/filter_hn_fields.py;
 
 INSERT OVERWRITE TABLE hn_crawl_data
 SELECT TRANSFORM(record_line)
-USING 'filter_hn_fields.py' AS id, type, author, time, text, url, score, title, descendants
+USING 'filter_hn_fields.py' AS item_id,url,num_links,num_images,num_scripts,num_styles,headers,text
 FROM hn_crawl_records;
 
 -- Clean the data

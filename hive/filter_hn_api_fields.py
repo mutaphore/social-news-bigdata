@@ -11,7 +11,7 @@ for row in reader:
     #strip comma from the fields
     clean_fields = []
     for field in row:
-        field = re.sub(",", "", field)
+        field = field.replace(",", "")
         if field == "":
             field = "[EMPTY_FIELD]"
         clean_fields.append(field)
