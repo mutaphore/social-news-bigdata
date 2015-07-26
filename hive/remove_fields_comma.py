@@ -7,6 +7,10 @@ import csv
 reader = csv.reader(sys.stdin, delimiter=',', quotechar='"')
 for row in reader:
     #clean the fields
+    clean_fields = []
     for field in row:
         field = re.sub(",", "", field)
-    print "\t".join(row)
+        if field == "":
+            field = "[EMPTY_FIELD]"
+        clean_fields.append(field)
+    print "\t".join(clean_fields)
