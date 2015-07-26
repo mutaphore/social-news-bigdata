@@ -10,9 +10,11 @@ reader = csv.reader(sys.stdin, delimiter=',', quotechar='"')
 for row in reader:
     #strip comma from the fields
     clean_fields = []
-    for field in row:
+    for field in row[:7]:
         field = field.replace(",", "")
         if field == "":
             field = "[EMPTY_FIELD]"
         clean_fields.append(field)
+    # text = " ".join(row[7:])
+    # clean_fields.append(text)
     print "\t".join(clean_fields)
