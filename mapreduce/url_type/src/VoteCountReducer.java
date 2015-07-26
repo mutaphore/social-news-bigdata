@@ -10,7 +10,8 @@ import org.apache.hadoop.io.Text;
 public class VoteCountReducer extends Reducer<IntWritable, IntWritable, IntWritable, FloatWritable> {
 
     @Override
-    public void reduce(IntWritable key, Iterable<IntWritable> values, Context context) {
+    public void reduce(IntWritable key, Iterable<IntWritable> values, Context context) 
+        throws IOException, InterruptedException {
         int sum = 0;
         int n = 0;
         for (IntWritable val : values) {

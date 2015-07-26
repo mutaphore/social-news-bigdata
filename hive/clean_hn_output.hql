@@ -19,6 +19,7 @@ FROM hn_records;
 CREATE EXTERNAL TABLE hn_data_clean (id int, type string, author string, time int, text string, url string, score int, title string, descendants int)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
+-- Take non-null descendants
 INSERT OVERWRITE TABLE hn_data_clean
 SELECT * FROM hn_data
 WHERE descendants IS NOT NULL;

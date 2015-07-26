@@ -9,23 +9,20 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class VoteCountMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable> {
 
-    private int getNumComments(String line) {
-        String[] items = line.split(",");
-        // Number of comments is the last item
-        return Integer.parseInt(items[items.length-1]);
-    }
-
-    private int getNumVotes(String line) {
-        StringTokenizer tokenizer = new StringTokenizer(line, ",");
-    }
-
     @Override
-    public void map(LongWritable key, Text value, Context context) {
+    public void map(LongWritable key, Text value, Context context)
+        throws IOException, InterruptedException {
         String line = value.toString(); 
         String[] parts = line.split(",");
-        // HN Fields: id, type, author(by), time, text, url, score, title, descendants
-        int numComments = Integer.parseInt(parts[8]);
-        int numVotes = Integer.parseInt(parts[6]);
+        int numComments, numVotes;
+        // Assumes that after splitting by "," we have following HN fields: 
+        // id, type, author(by), time, text, url, score, title, descendants
+        try {
+            numComments = Integer.parseInt(parts[8]);
+            numVotes = Integer.parseInt(parts[6]);
+        } catch (NumberFormatException e) {
+            return;
+        }
         context.write(new IntWritable(numComments), new IntWritable(numVotes));
     }
 }
