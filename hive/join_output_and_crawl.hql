@@ -5,5 +5,19 @@
 -- Target table fields: id,url,score,num_links,num_images,num_scripts,num_styles,headers
 
 
-CREATE EXTERNAL TABLE hn_api_crawl (id int, url string, score int, num_links int, num_images int, num_scripts int, num_styles int, headers string)
+CREATE EXTERNAL TABLE hn_api_crawl (id int, url string, score int, num_links int, num_images int, num_scripts int, num_styles int, headers string);
 
+INSERT OVERWRITE LOCAL DIRECTORY 'hn_api_crawl_join_results'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT hn_api_data_clean.id, hn_api_data_clean.url, hn_api_data_clean.score, hn_crawl_data.num_links, 
+hn_crawl_data.num_images, hn_crawl_data.num_scripts, hn_crawl_data.num_styles, hn_crawl_data.headers
+FROM hn_crawl_data JOIN hn_api_data_clean 
+ON hn_crawl_data.item_id = hn_api_data_clean.id;
+
+
+INSERT OVERWRITE LOCAL DIRECTORY 'hn_api_crawl_join_results'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT hn_data_clean.id, hn_data_clean.url, hn_data_clean.score, hn_crawl_data.num_links, 
+hn_crawl_data.num_images, hn_crawl_data.num_scripts, hn_crawl_data.num_styles, hn_crawl_data.headers
+FROM hn_crawl_data JOIN hn_data_clean 
+ON hn_crawl_data.item_id = hn_data_clean.id;
