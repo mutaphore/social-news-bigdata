@@ -16,7 +16,3 @@ INSERT OVERWRITE TABLE hn_crawl_data
 SELECT TRANSFORM(record_line)
 USING 'filter_hn_crawl_fields.py' AS item_id,url,num_links,num_images,num_scripts,num_styles,headers
 FROM hn_crawl_records;
-
--- Clean the data
--- CREATE EXTERNAL TABLE hn_data_clean (id int, type string, author string, time int, text string, url string, score int, title string, descendants int)
--- ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';

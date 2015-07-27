@@ -29,6 +29,14 @@ public class VoteCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
         }
     }
 
+    // Map from api info to the post type
+    private String getPostType(String line) {
+        String[] parts = line.split(",");
+        //Types: video, image, article
+        String url = parts[3];
+        String subreddit = parts[7];
+    }
+
     @Override
     public void map(LongWritable key, Text value, Context context)
         throws IOException, InterruptedException {
