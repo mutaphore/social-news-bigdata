@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# This script compiles the src program files with all the necessary hadoop jar files,
+# packages binaries into a jar file (to be submitted to hadoop), cleans hdfs for any 
+# old output files and finally runs hadoop then retrieve the output
+
+# Define variables
+HADOOP_JARS=("/usr/lib/hadoop/hadoop-annotations-2.6.0-cdh5.4.0.jar" \
+             "/usr/lib/hadoop-0.20-mapreduce/hadoop-core-2.6.0-mr1-cdh5.4.0.jar" \
+             "/usr/lib/hadoop/hadoop-common.jar" \
+             "/usr/lib/hadoop-hdfs/hadoop-hdfs.jar")
+join=$(printf ":%s" "${HADOOP_JARS[@]}")
+JAVAC_CLASSPATH=${join:1}
+SRC_FILES="src/HourlyVoteCountMapper.java src/HourlyVoteCountReducer.java src/HourlyVoteCountDriver.java src/CsvOutputFormat.java"
+PROG_JAR="hourlyvotecount.jar"
+MAIN_CLASS="HourlyVoteCountDriver"
+HDFS_INPUT_DIR="/user/hive/warehouse/reddit_data/000000_0"
+HDFS_OUTPUT_DIR="hourly_votecount_output"
+
+# Cleanup local files
+rm bin/*
+rm $PROG_JAR
+
+# Java compile and compress into jar
+#javac -cp $(yarn classpath) $SRC_FILES -d bin
+javac -cp $JAVAC_CLASSPATH $SRC_FILES -d bin
+cd bin
+jar cvf ../$PROG_JAR *.class
+cd ..
+
+# Cleanup HDFS old output files
+hdfs dfs -rm -r $HDFS_OUTPUT_DIR
+
+# Run hadoop
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$PWD/$PROG_JAR
+hadoop $MAIN_CLASS $HDFS_INPUT_DIR $HDFS_OUTPUT_DIR
+
+# Get results
+hdfs dfs -get $HDFS_OUTPUT_DIR
