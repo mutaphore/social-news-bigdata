@@ -2,6 +2,8 @@
 
 -- HN crawled data fields: item_id,url,num_links,num_images,num_scripts,num_styles,headers,text
 
+USE DATABASE dc3186;
+
 CREATE EXTERNAL TABLE hn_crawl_records (record_line string)
 LOCATION '/user/dc3186/hiveInputHn/crawl/';
 

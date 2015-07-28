@@ -2,6 +2,8 @@
 
 -- HN API output fields: id,deleted,type,by,time,text,dead,parent,kids,url,score,title,parts,descendants
 
+USE dc3186;
+
 CREATE EXTERNAL TABLE hn_api_records (record_line string)
 LOCATION '/user/dc3186/hiveInputHn/api/';
 
@@ -24,6 +26,4 @@ INSERT OVERWRITE TABLE hn_api_data_clean
 SELECT * FROM hn_api_data
 WHERE descendants IS NOT NULL;
 
-INSERT OVERWRITE LOCAL DIRECTORY 'hn_api_output'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT * FROM hn_api_data_clean;
+INSERT OVERWRITE LOCAL DIRECTOR	
