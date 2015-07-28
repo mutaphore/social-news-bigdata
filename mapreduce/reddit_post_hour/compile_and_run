@@ -22,7 +22,8 @@ rm bin/*
 rm $PROG_JAR
 
 # Java compile and compress into jar
-javac -cp $(yarn classpath) $SRC_FILES -d bin
+#javac -cp $(yarn classpath) $SRC_FILES -d bin
+javac -cp $JAVAC_CLASSPATH $SRC_FILES -d bin
 cd bin
 jar cvf ../$PROG_JAR *.class
 cd ..
