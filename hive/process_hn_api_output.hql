@@ -4,10 +4,20 @@
 
 USE dc3186;
 
-CREATE EXTERNAL TABLE hn_api_records (record_line string)
+CREATE EXTERNAL TABLE IF NOT EXISTS hn_api_records (record_line string)
 LOCATION '/user/dc3186/hiveInputHn/api/';
 
-CREATE EXTERNAL TABLE hn_api_data (id int, type string, author string, time int, text string, url string, score int, title string, descendants int)
+CREATE EXTERNAL TABLE IF NOT EXISTS hn_api_data (
+	id int, 
+	type string, 
+	author string, 
+	time int, 
+	text string, 
+	url string, 
+	score int, 
+	title string, 
+	descendants int
+)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 ADD FILE /home/dc3186/bigdata_project/hive/filter_hn_api_fields.py;
@@ -18,7 +28,17 @@ USING 'filter_hn_api_fields.py' AS id, type, author, time, text, url, score, tit
 FROM hn_api_records;
 
 -- Clean the data
-CREATE EXTERNAL TABLE hn_api_data_clean (id int, type string, author string, time int, text string, url string, score int, title string, descendants int)
+CREATE EXTERNAL TABLE IF NOT EXISTS hn_api_data_clean (
+	id int, 
+	type string, 
+	author string, 
+	time int, 
+	text string, 
+	url string, 
+	score int, 
+	title string, 
+	descendants int
+)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 -- Take non-null descendants

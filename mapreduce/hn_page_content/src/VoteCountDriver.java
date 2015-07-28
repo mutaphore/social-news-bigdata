@@ -11,7 +11,7 @@ public class VoteCountDriver {
     public static void main(String[] args) throws Exception{
 
         if (args.length != 2) {
-            System.err.println("Usage: VoteCountDriver <input path> <output path>");
+            System.err.println("Usage: VoteCountDriver <input path> <output path> <links|images|scripts|styles>");
             System.exit(-1);
         }
 

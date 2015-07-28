@@ -27,5 +27,8 @@ public class VoteCountMapper extends Mapper<LongWritable, Text, IntWritable, Int
             return;
         }
         context.write(new IntWritable(numLinks), new IntWritable(numVotes));
+        // context.write(new IntWritable(numImages), new IntWritable(numVotes));
+        // context.write(new IntWritable(numScripts), new IntWritable(numVotes));
+        // context.write(new IntWritable(numStyles), new IntWritable(numVotes));
     }
 }
