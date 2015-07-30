@@ -6,7 +6,12 @@ Python scrapy web crawler responsible for crawling urls retrieved from HN/Reddit
 and save the content of those webpages as well as various metadata.
 
 /datumbox
-
+Machine learning framework from datumbox.com. The framework can be used
+to perform many types of analysis such as sentiment analysis, topic
+classication, keyword extration etc. on a large dataset.
+Currently our project is not using this framework; however it can be an
+additional add-on analysis toolbox later if we want to do a more
+in-depth study.
 
 /hackernews
 hackernews_api.py - this script makes requests to the HN api and downloads all the data from their RESTful service.
@@ -21,16 +26,22 @@ process_hn_crawl_output.hql - cleans the HN crawl output file to remove commas, 
 filter_hn_api_fields.py - this script contains the transform function used by process_hn_api_output.hql 
 filter_hn_crawl_fields.py - this script contains the transform function used by process_hn_crawl_output.hql
 join_output_and_crawl.hql - joins the HN api dataset with crawled dataset so we can get further correlation info
-
+get_reddit_output.hql - cleans and export reddit dataset to local directory
+remove_fields_comma.py - an udf used by hive to remove comma from title field so that data can be process by mapreduce job 
 
 /mapreduce
 hn_num_comments - MapReduce program to get relationship between number of comments received on a post vs. the average score received
 hn_page_content - MapReduce program to get relationship between number of links, scripts, images, styles vs. the average score received
 reddit_post_type - MapRedue program to get relationship between the subreddit of a post on Reddit vs. the average score received
-
+reddit_post_hour - MapReduce program to get relationship between the hour of a day vs. the average votes received
 
 /pig
 filter.pig - filters the HN output files to only get the "story" type urls.
 
 
 /reddit
+cleaned_data - the final reddit dataset ready to be consumed by the reddit_post_hour program
+getposts.py - depricated
+output.csv - raw reddit post data collected by calling reddit api from reddit.py script
+post_datastructure.txt - descriptor for the reddit object return by the reddit api
+reddit.py - python script that call the reddit api to get the raw reddit dataset (output.csv)
