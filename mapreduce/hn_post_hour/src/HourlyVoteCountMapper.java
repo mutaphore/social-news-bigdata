@@ -26,7 +26,7 @@ public class HourlyVoteCountMapper extends Mapper<LongWritable, Text, Text, IntW
             return 0;
         }
         try {
-            return Integer.parseInt(parts[1]);
+            return Integer.parseInt(parts[6]);
         } catch (NumberFormatException e) {
             return 0;
         }
@@ -37,10 +37,13 @@ public class HourlyVoteCountMapper extends Mapper<LongWritable, Text, Text, IntW
         throws IOException, InterruptedException {
         String line = value.toString(); 
         String[] parts = line.split(",");
-        // Assumes that after splitting by "," we have following Reddit fields: 
-        // id, score, title, url, author, num_comments, created_utc, subreddit, domain
-        int hour = getHour((long)Double.parseDouble(parts[6]));
+        // Assumes that after splitting by "," we have following HN fields: 
+        // id, type, author(by), time, text, url, score, title, descendants
+        int hour = getHour((long)Double.parseDouble(parts[3]));
         int numVotes = getNumVotes(line);
+        
+        System.out.println("Hour is: " + hour);
+        System.out.println("Score is: " + numVotes);
         
         context.write(new Text(Integer.toString(hour)), new IntWritable(numVotes));
     }

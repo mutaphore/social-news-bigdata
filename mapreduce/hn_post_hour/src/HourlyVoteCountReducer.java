@@ -18,6 +18,9 @@ public class HourlyVoteCountReducer extends Reducer<Text, IntWritable, Text, Flo
             sum += val.get();
             n++;
         }
+        
+        System.out.println("The Sum is: " + sum);
+        System.out.println("The n is: " + n);
         float average = (float)sum / (float)n;
         context.write(key, new FloatWritable(average));
     }

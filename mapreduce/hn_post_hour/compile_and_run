@@ -5,8 +5,8 @@
 # old output files and finally runs hadoop then retrieve the output
 
 # Define variables
-HADOOP_JARS=("/usr/lib/hadoop/hadoop-annotations-2.6.0-cdh5.4.4.jar" \
-             "/usr/lib/hadoop-0.20-mapreduce/hadoop-core-2.6.0-mr1-cdh5.4.4.jar" \
+HADOOP_JARS=("/usr/lib/hadoop/hadoop-annotations-2.6.0-cdh5.4.0.jar" \
+             "/usr/lib/hadoop-0.20-mapreduce/hadoop-core-2.6.0-mr1-cdh5.4.0.jar" \
              "/usr/lib/hadoop/hadoop-common.jar" \
              "/usr/lib/hadoop-hdfs/hadoop-hdfs.jar")
 join=$(printf ":%s" "${HADOOP_JARS[@]}")
@@ -14,7 +14,7 @@ JAVAC_CLASSPATH=${join:1}
 SRC_FILES="src/HourlyVoteCountMapper.java src/HourlyVoteCountReducer.java src/HourlyVoteCountDriver.java src/CsvOutputFormat.java"
 PROG_JAR="hourlyvotecount.jar"
 MAIN_CLASS="HourlyVoteCountDriver"
-HDFS_INPUT_DIR="/user/root/hackernews/test"
+HDFS_INPUT_DIR="/user/cloudera/hackernews"
 HDFS_OUTPUT_DIR="hourly_votecount_output"
 
 # Cleanup local files
