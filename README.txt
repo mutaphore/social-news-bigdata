@@ -33,7 +33,10 @@ remove_fields_comma.py - an udf used by hive to remove comma from title field so
 hn_num_comments - MapReduce program to get relationship between number of comments received on a post vs. the average score received
 hn_page_content - MapReduce program to get relationship between number of links, scripts, images, styles vs. the average score received
 reddit_post_type - MapRedue program to get relationship between the subreddit of a post on Reddit vs. the average score received
-reddit_post_hour - MapReduce program to get relationship between the hour of a day vs. the average votes received
+reddit_post_hour - MapReduce program to get relationship between the hour of a day vs. the average votes received in Reddit
+hn_post_hour - MapReduce program to get relationship between the hour of a day vs. the average votes received in HackerNews
+
+
 
 /pig
 filter.pig - filters the HN output files to only get the "story" type urls.
