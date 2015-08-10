@@ -1,0 +1,43 @@
+## Reddit api items:
+https://s3.amazonaws.com/deweichen/reddit/reddit_output2.csv
+
+
+## HackerNews api output raw:
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_2.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_3.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_4.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_5.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_6.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_7.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_8.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output_raw/output_9.csv
+
+
+## HackerNews api output just story items(0-9):
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_0_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_1_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_2_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_3_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_4_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_5_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_6_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_7_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_8_storyitems.csv
+https://s3.amazonaws.com/deweichen/hackernews/api_output/output_9_storyitems.csv
+
+
+## HackerNews web crawl results(0-9):
+https://s3.amazonaws.com/deweichen/hackernews/crawl_output/crawl_results_0.csv
+
+
+
+## Clean data after processed by Hive and ready to feed into MapReduce
+
+### HackerNews (id, type, author, time, text, url, score, title, descendants):
+https://s3.amazonaws.com/deweichen/hackernews/emr_output/processed_api_data/6c4a998f-0525-4268-865b-7cd572e2a59e-000000
+https://s3.amazonaws.com/deweichen/hackernews/emr_output/processed_api_data/6c4a998f-0525-4268-865b-7cd572e2a59e-000001
+
+### Reddit (id, score, title, url, author, num_comments, created_utc, subreddit, domain):
+
+https://raw.githubusercontent.com/mutaphore/bigdata_project/master/reddit/cleaned_data/000000_0
