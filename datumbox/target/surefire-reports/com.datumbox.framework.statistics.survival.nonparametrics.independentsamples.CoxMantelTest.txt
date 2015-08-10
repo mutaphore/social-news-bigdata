@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.datumbox.framework.statistics.survival.nonparametrics.independentsamples.CoxMantelTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 sec - in com.datumbox.framework.statistics.survival.nonparametrics.independentsamples.CoxMantelTest

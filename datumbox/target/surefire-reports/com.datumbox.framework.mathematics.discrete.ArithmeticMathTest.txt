@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.datumbox.framework.mathematics.discrete.ArithmeticMathTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.372 sec - in com.datumbox.framework.mathematics.discrete.ArithmeticMathTest

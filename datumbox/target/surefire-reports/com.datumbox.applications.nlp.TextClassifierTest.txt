@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.datumbox.applications.nlp.TextClassifierTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.708 sec - in com.datumbox.applications.nlp.TextClassifierTest

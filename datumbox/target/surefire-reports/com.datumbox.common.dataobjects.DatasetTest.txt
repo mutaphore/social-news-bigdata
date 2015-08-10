@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.datumbox.common.dataobjects.DatasetTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.835 sec - in com.datumbox.common.dataobjects.DatasetTest
