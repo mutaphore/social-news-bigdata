@@ -31,6 +31,13 @@ https://s3.amazonaws.com/deweichen/hackernews/api_output/output_9_storyitems.csv
 https://s3.amazonaws.com/deweichen/hackernews/crawl_output/crawl_results_0.csv
 
 
+## HackerNews join dataset
+https://s3.amazonaws.com/deweichen/hackernews/emr_output/api_crawl_join_results/738f2ea5-86fd-409d-a6de-1d9791929a28-000000
+https://s3.amazonaws.com/deweichen/hackernews/emr_output/api_crawl_join_results/738f2ea5-86fd-409d-a6de-1d9791929a28-000001
+https://s3.amazonaws.com/deweichen/hackernews/emr_output/api_crawl_join_results/738f2ea5-86fd-409d-a6de-1d9791929a28-000002
+
+
+
 
 ## Clean data after processed by Hive and ready to feed into MapReduce
 
